@@ -53,7 +53,7 @@
 
    ```bash
    npm run db:migrate   # db/migrations/의 SQL 중 적용 안 된 것만 순서대로 적용
-   npm run db:seed      # 예시 Kudo 12개와 리액션 (다시 실행해도 중복되지 않음)
+   npm run db:seed      # 예시 Kudo 6개와 리액션 (다시 실행해도 중복되지 않음)
    ```
 
 4. 개발 서버
