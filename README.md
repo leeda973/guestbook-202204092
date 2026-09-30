@@ -83,25 +83,6 @@ Claude Code와 [Matt Pocock 스킬](https://github.com/mattpocock/skills)로 기
 4. **`/implement`**: 티켓마다 테스트를 먼저 쓰고 구현한 뒤 티켓 단위로 커밋 (각 티켓 파일의 Comments에 결과 기록)
 5. **`/code-review`**: 표준·스펙 두 축으로 변경 리뷰하고 지적 사항을 반영
 
-이 순서를 세 번 반복했습니다.
-
-| 회차 | 내용 | 스펙·티켓 |
-|---|---|---|
-| v1 | 기본 기능(작성·조회·수정·삭제, 리액션, 온도, 필터·검색·정렬) | [`.scratch/mini-kudos/`](.scratch/mini-kudos/) |
-| v2 | 추가 기능(공유·미리보기 이미지·받는 사람 모아보기·주간 Top 3·오류 화면·카드 순서) | [`.scratch/mini-kudos-v2/`](.scratch/mini-kudos-v2/) |
-| v3 | 과제 제출 조건 맞춤(개발자 정보 표시, 이름 필수, 작성 시각, 비밀번호 안내, 요청 한도, 이름 규칙) | [`.scratch/mini-kudos-v3/`](.scratch/mini-kudos-v3/) |
-
-## 제출 점검표
-
-배포와 제출은 사람이 직접 합니다([기본 스펙 13번 티켓](.scratch/mini-kudos/issues/13-push-and-deploy.md)).
-
-- [ ] GitHub 저장소 이름을 `guestbook-202204092`로 바꾸고 **public**으로 설정
-- [ ] Neon 프로젝트 이름을 `guestbook-202204092`로 변경(연결 문자열은 그대로)
-- [ ] 운영 DB에 테이블 생성: `node --env-file=.env.prod scripts/migrate.mts` (예시 Kudo가 필요하면 시드도 실행)
-- [ ] Vercel 프로젝트를 `guestbook-202204092`로 만들고 `DATABASE_URL`(운영 DB)을 Production 환경 변수로 등록한 뒤 배포
-- [ ] 배포 URL에서 작성 → 조회 → 수정(틀린·올바른 비밀번호) → 삭제(틀린·올바른 비밀번호), 헤더의 개발자 정보 확인. Neon 콜드 스타트로 첫 요청이 몇 초 걸릴 수 있음
-- [ ] 이 README의 배포 URL을 채우고, 저장소 URL과 배포 URL을 이러닝캠퍼스에 제출
-
 ## 프로젝트 구조
 
 - `app/` 페이지(`(board)/` 보드, `k/[id]/` Kudo Page)와 Route Handler(`app/api/`), 미리보기 이미지(`opengraph-image`)
