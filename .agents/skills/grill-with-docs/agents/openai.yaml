@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill with Docs"
+  short_description: "설계를 캐묻고 문서로 남기기"
+policy:
+  allow_implicit_invocation: false
