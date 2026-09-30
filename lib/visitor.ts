@@ -2,11 +2,11 @@
 import { randomUUID } from "node:crypto";
 import { cookies } from "next/headers";
 
-export const VISITOR_COOKIE = "kudos_visitor";
+const VISITOR_COOKIE = "kudos_visitor";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const ONE_YEAR = 60 * 60 * 24 * 365;
 
-export function parseVisitorId(value: string | undefined | null): string | null {
+function parseVisitorId(value: string | undefined | null): string | null {
   return value && UUID.test(value) ? value : null;
 }
 

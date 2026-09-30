@@ -2,7 +2,7 @@
 import { RETRY_LATER_MESSAGE, type ErrorCode, type FieldErrors } from "@/lib/http";
 
 /** 서버 오류 코드와, 요청이 서버에 닿지 못한 경우의 NETWORK */
-export type ClientErrorCode = ErrorCode | "NETWORK";
+type ClientErrorCode = ErrorCode | "NETWORK";
 
 export class ApiError extends Error {
   constructor(

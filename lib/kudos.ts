@@ -76,7 +76,7 @@ const listQuerySchema = z.object({
     .transform((v) => v || undefined),
 });
 
-export type ListQuery = z.input<typeof listQuerySchema>;
+type ListQuery = z.input<typeof listQuerySchema>;
 
 /** Kudo 한 행과, Visitor 기준 reacted가 담긴 이모지별 Reaction 집계. `kudos k`에 붙여 쓴다. */
 function kudoColumns(visitorId: string | null) {

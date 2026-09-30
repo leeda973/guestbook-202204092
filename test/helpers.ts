@@ -1,11 +1,11 @@
 import { POST } from "@/app/api/kudos/route";
 import type { KudoView } from "@/lib/kudo-schema";
 
-export const BASE = "http://localhost";
+const BASE = "http://localhost";
 
 let ipCounter = 0;
 /** 요청마다 다른 IP. 요청 횟수 제한이 다른 테스트에 끼어들지 않게 한다. */
-export const uniqueIp = () => `10.0.${Math.floor(++ipCounter / 250)}.${ipCounter % 250}`;
+const uniqueIp = () => `10.0.${Math.floor(++ipCounter / 250)}.${ipCounter % 250}`;
 
 export function jsonRequest(path: string, method: string, body?: unknown, headers: Record<string, string> = {}) {
   return new Request(BASE + path, {

@@ -1,7 +1,7 @@
 import { getSql } from "@/lib/db";
 import { HttpError, RETRY_LATER_MESSAGE } from "@/lib/http";
 
-export type LimitedAction = "create" | "password";
+type LimitedAction = "create" | "password";
 // 도배·무차별 대입은 막되, 같은 네트워크의 여러 채점자가 시험해도 걸리지 않을 만큼 둔다(스펙 v3).
 const LIMIT_PER_MINUTE = 30;
 

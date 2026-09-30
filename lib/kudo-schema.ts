@@ -15,7 +15,7 @@ export const MESSAGE_MAX = 200;
 
 /** 없는 Kudo(삭제됐거나 주소가 틀림)를 알릴 때 쓰는 한 가지 문구 */
 export const KUDO_GONE_MESSAGE = "이미 삭제되었거나 없는 Kudo예요";
-export const NAME_MAX = 20;
+const NAME_MAX = 20;
 const AUTHOR_REQUIRED = "이름을 입력해 주세요";
 
 const segmenter = new Intl.Segmenter("ko", { granularity: "grapheme" });
@@ -42,7 +42,7 @@ export const nameSchema = (label: string, requiredMessage?: string) => {
   );
 };
 
-export const kudoContentSchema = z.object({
+const kudoContentSchema = z.object({
   recipient: nameSchema("받는 사람")
     .nullish()
     .transform((v) => v || null),
@@ -54,7 +54,7 @@ export const kudoContentSchema = z.object({
     .refine((v) => visibleLength(v) <= MESSAGE_MAX, `메시지는 ${MESSAGE_MAX}자까지 쓸 수 있어요`),
 });
 
-export const passwordSchema = z
+const passwordSchema = z
   .string({ error: "비밀번호를 입력해 주세요" })
   .min(4, "비밀번호는 4자 이상이에요")
   .max(20, "비밀번호는 20자까지 쓸 수 있어요");
@@ -64,8 +64,6 @@ export const createKudoSchema = kudoContentSchema.extend({
   author: nameSchema("이름", AUTHOR_REQUIRED),
   password: passwordSchema,
 });
-
-export type CreateKudoInput = z.input<typeof createKudoSchema>;
 
 /** 수정은 Message·Category·Recipient만 바꾼다. Author와 비밀번호는 바뀌지 않는다. */
 export const updateKudoSchema = kudoContentSchema.extend({ password: passwordSchema });
